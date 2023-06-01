@@ -5,9 +5,55 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /*   ---------------------------------         */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: black;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat-VariableFont_wght'),
+    url('./fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#root {
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+input {
+  outline: none;
 }

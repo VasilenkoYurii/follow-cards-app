@@ -3,12 +3,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserProfiles } from 'redux/operations';
 import { selectUsersProfiles } from 'redux/selectors';
 import { BsArrowLeft } from 'react-icons/bs';
+// import { toast } from 'react-hot-toast';
+
+import Dropdown from 'react-bootstrap/Dropdown';
 
 import {
   UsersProfilesList,
   LoadMoreBtn,
   UsersProfilesContainer,
   BackButton,
+  DropdownTweets,
+  DropdownTweetsMenu,
+  DropdownTweetsContainer,
 } from './TweetsPage.styled';
 import { UserCard } from 'components/UserCard/UserCard';
 
@@ -17,13 +23,19 @@ export const TweetsPage = () => {
   const usersProfiles = useSelector(selectUsersProfiles);
   const [page, setPage] = useState(1);
   const [displayedProfiles, setDisplayedProfiles] = useState([]);
+  const [lengthForPaginetion, setLengthForPaginetion] = useState([]);
   const [followingUsers, setFollowingUsers] = useState(
     localStorage.getItem('followingUsers')
       ? JSON.parse(localStorage.getItem('followingUsers'))
       : []
   );
-
+  const [activeItem, setActiveItem] = useState(null);
   const profilesPerPage = 3;
+  const options = [
+    { value: 'show all', label: 'show all' },
+    { value: 'follow', label: 'Follow' },
+    { value: 'followings', label: 'followings' },
+  ];
 
   useEffect(() => {
     dispatch(fetchUserProfiles());
@@ -41,13 +53,43 @@ export const TweetsPage = () => {
           return { ...userProfile, following: false };
         }
       });
-    console.log(newDisplayedProfiles);
-    setDisplayedProfiles(prevProfiles => [...newDisplayedProfiles]);
-  }, [usersProfiles, page, followingUsers]);
 
-  const handleLoadMore = () => {
-    setPage(prevPage => prevPage + 1);
-  };
+    const newDisplayedProfilesForPag = usersProfiles.map(userProfile => {
+      if (followingUsers.includes(userProfile.user)) {
+        return { ...userProfile, following: true };
+      } else {
+        return { ...userProfile, following: false };
+      }
+    });
+
+    if (activeItem && activeItem.value === 'follow') {
+      const changedDisplayedProfiles = newDisplayedProfiles.filter(
+        userProfile => userProfile.following === false
+      );
+      setLengthForPaginetion(prevState => [
+        ...newDisplayedProfilesForPag.filter(
+          userProfile => userProfile.following === false
+        ),
+      ]);
+      setDisplayedProfiles(prevProfiles => [...changedDisplayedProfiles]);
+      return;
+    } else if (activeItem && activeItem.value === 'followings') {
+      console.log('awd');
+      const changedDisplayedProfiles = newDisplayedProfiles.filter(
+        userProfile => userProfile.following === true
+      );
+      setLengthForPaginetion(prevState =>
+        newDisplayedProfilesForPag.filter(
+          userProfile => userProfile.following === true
+        )
+      );
+      setDisplayedProfiles(prevProfiles => [...changedDisplayedProfiles]);
+      return;
+    } else {
+      setLengthForPaginetion(prevState => newDisplayedProfilesForPag);
+      setDisplayedProfiles(prevProfiles => [...newDisplayedProfiles]);
+    }
+  }, [usersProfiles, page, followingUsers, activeItem]);
 
   const handleFollow = userName => {
     setFollowingUsers(prevState => {
@@ -65,12 +107,44 @@ export const TweetsPage = () => {
     });
   };
 
+  const handleItemClick = item => {
+    setActiveItem(item);
+  };
+  const handleLoadMore = () => {
+    setPage(prevPage => prevPage + 1);
+  };
+
   return (
     <UsersProfilesContainer>
       <BackButton to="/">
         <BsArrowLeft width={20} height={20} />
         Back
       </BackButton>
+
+      <DropdownTweetsContainer>
+        <DropdownTweets
+          id="dropdown-button-dark-example2"
+          variant="secondary"
+          title="Dropdown button"
+          className="mt-2"
+        >
+          {activeItem ? activeItem.label : 'Select an option'}{' '}
+        </DropdownTweets>
+
+        <DropdownTweetsMenu variant="dark">
+          {options.map(item => (
+            <Dropdown.Item
+              key={item.value}
+              href={`#/action-${item.value}`}
+              className={activeItem === item ? 'custom-active-item' : ''}
+              onClick={() => handleItemClick(item)}
+            >
+              {item.label}
+            </Dropdown.Item>
+          ))}
+        </DropdownTweetsMenu>
+      </DropdownTweetsContainer>
+
       <UsersProfilesList>
         {displayedProfiles.map(userProfile => (
           <li key={userProfile.id}>
@@ -86,7 +160,7 @@ export const TweetsPage = () => {
         ))}
       </UsersProfilesList>
 
-      {usersProfiles.length > displayedProfiles.length && (
+      {lengthForPaginetion.length > displayedProfiles.length && (
         <LoadMoreBtn onClick={handleLoadMore}>Load more</LoadMoreBtn>
       )}
     </UsersProfilesContainer>

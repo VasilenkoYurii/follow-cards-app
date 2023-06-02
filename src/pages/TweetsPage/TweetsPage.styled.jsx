@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export const UsersProfilesContainer = styled.div`
   display: flex;
@@ -33,11 +34,12 @@ export const BackButton = styled(Link)`
 
   box-shadow: -0.58px -0.13px 8.62px 3px rgba(255, 254, 254, 0.5);
 
-  transition: all 1000ms;
+  transition: all 500ms;
 
   &:hover,
   &:focus {
-    background-color: #ebd8ff;
+    background-color: #5c636a;
+    color: #fff;
   }
 `;
 
@@ -80,6 +82,36 @@ export const LoadMoreBtn = styled.button`
 
   &:hover,
   &:focus {
-    background-color: #ebd8ff;
+    background-color: #5c636a;
+    color: #fff;
+  }
+`;
+
+export const DropdownTweetsContainer = styled(Dropdown)`
+  margin-bottom: 20px;
+`;
+
+export const DropdownTweets = styled(Dropdown.Toggle)`
+  width: 400px;
+
+  font-family: 'Montserrat';
+
+  color: #373737;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #fff;
+  box-shadow: -0.58px -0.13px 8.62px 3px rgba(255, 254, 254, 0.5);
+
+  transition: all 500ms;
+`;
+
+export const DropdownTweetsMenu = styled(Dropdown.Menu)`
+  width: 400px;
+  font-family: 'Montserrat';
+  text-transform: uppercase;
+  &:hover {
   }
 `;

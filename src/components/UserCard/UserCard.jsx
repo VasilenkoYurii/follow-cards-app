@@ -37,7 +37,10 @@ export const UserCard = ({
         {tweets.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Tweets
       </TweetsPrg>
       <FollowersPrg>
-        {followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Followers
+        {following
+          ? (followers + 1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+          : followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+        Followers
       </FollowersPrg>
       <FollowButton
         bgColor={following ? '#5CD3A8' : '#ebd8ff'}

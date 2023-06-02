@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/follow-cards-app/static/css/main.073c9b0a.css",
-    "main.js": "/follow-cards-app/static/js/main.87e968db.js",
-    "static/media/logo.svg": "/follow-cards-app/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/follow-cards-app/static/css/main.50f8a93b.css",
+    "main.js": "/follow-cards-app/static/js/main.15411394.js",
+    "static/media/Montserrat-VariableFont_wght.ttf": "/follow-cards-app/static/media/Montserrat-VariableFont_wght.3068cdb43142f5625baf.ttf",
+    "static/media/friends.png": "/follow-cards-app/static/media/friends.7e205413cd773fa6e77f.png",
+    "static/media/titlePicture.png": "/follow-cards-app/static/media/titlePicture.032662a2a907475127d7.png",
     "index.html": "/follow-cards-app/index.html",
-    "main.073c9b0a.css.map": "/follow-cards-app/static/css/main.073c9b0a.css.map",
-    "main.87e968db.js.map": "/follow-cards-app/static/js/main.87e968db.js.map"
+    "main.50f8a93b.css.map": "/follow-cards-app/static/css/main.50f8a93b.css.map",
+    "main.15411394.js.map": "/follow-cards-app/static/js/main.15411394.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.87e968db.js"
+    "static/css/main.50f8a93b.css",
+    "static/js/main.15411394.js"
   ]
 }

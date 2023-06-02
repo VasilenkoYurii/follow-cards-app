@@ -14,7 +14,14 @@ import {
   UserNamePrg,
 } from './UserCard.styled';
 
-export const UserCard = ({ userName, avatar, tweets, followers }) => {
+export const UserCard = ({
+  userName,
+  avatar,
+  tweets,
+  followers,
+  following,
+  handleFollow,
+}) => {
   return (
     <UserCardConainer>
       <CompanyLogo src={goItLogo} alt="Company logo" />
@@ -32,7 +39,15 @@ export const UserCard = ({ userName, avatar, tweets, followers }) => {
       <FollowersPrg>
         {followers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} Followers
       </FollowersPrg>
-      <FollowButton>Follow</FollowButton>
+      <FollowButton
+        bgColor={following ? '#5CD3A8' : '#ebd8ff'}
+        hoverColor={following ? '#a5ffdfd6' : '#fff'}
+        onClick={() => {
+          handleFollow(userName);
+        }}
+      >
+        Follow
+      </FollowButton>
     </UserCardConainer>
   );
 };

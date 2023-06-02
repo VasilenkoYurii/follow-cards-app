@@ -77,10 +77,10 @@ export const UserLogoImg = styled.img`
 
 export const UserNamePrg = styled.p`
   font-family: 'Montserrat';
-  font-size: 20px;
+  font-size: 22px;
   line-height: 24px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
   color: #ebd8ff;
 
   position: absolute;
@@ -118,7 +118,7 @@ export const FollowButton = styled.p`
   line-height: 22px;
   text-transform: uppercase;
   color: #373737;
-  background-color: #ebd8ff;
+  background-color: ${props => props.bgColor};
   cursor: pointer;
   /* 
   после подписки 
@@ -140,6 +140,6 @@ export const FollowButton = styled.p`
 
   &:hover,
   &:focus {
-    background-color: #fff;
+    background-color: ${props => props.hoverColor};
   }
 `;

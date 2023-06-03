@@ -17,11 +17,11 @@ export const fetchUserProfiles = createAsyncThunk(
   }
 );
 
-export const checkPageUrl = createAsyncThunk(
-  'contacts/checkPageUrl',
-  async (_, thunkAPI) => {
+export const checkAlternativeChose = createAsyncThunk(
+  'contacts/checkAlternativeChose',
+  async (credentials, thunkAPI) => {
     try {
-      return window.location.href.includes('tweets');
+      return credentials;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

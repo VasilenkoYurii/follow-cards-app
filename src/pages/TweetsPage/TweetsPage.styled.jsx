@@ -115,3 +115,9 @@ export const DropdownTweetsMenu = styled(Dropdown.Menu)`
   &:hover {
   }
 `;
+
+export const UserChoiseContainer = styled.div`
+  position: absolute;
+  right: 100px;
+  top: 80px;
+`;

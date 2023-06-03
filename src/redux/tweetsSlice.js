@@ -1,9 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUserProfiles, checkPageUrl } from './operations';
+import { fetchUserProfiles, checkAlternativeChose } from './operations';
 
 const initialState = {
   usersProfiles: [],
-  alternativeUrl: false,
   alternativeChose: false,
 };
 
@@ -17,11 +16,10 @@ const usersProfilesSlice = createSlice({
         state.usersProfiles = payload;
       })
       .addCase(fetchUserProfiles.rejected, (state, { payload }) => {})
-      .addCase(checkPageUrl.fulfilled, (state, { payload }) => {
-        console.log(payload);
-        state.alternative = payload;
+      .addCase(checkAlternativeChose.fulfilled, (state, { payload }) => {
+        state.alternativeChose = payload;
       })
-      .addCase(checkPageUrl.rejected, (state, { payload }) => {});
+      .addCase(checkAlternativeChose.rejected, (state, { payload }) => {});
   },
 });
 

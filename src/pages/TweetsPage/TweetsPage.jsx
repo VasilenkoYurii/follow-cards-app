@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserProfiles, checkPageUrl } from 'redux/operations';
+import { fetchUserProfiles } from 'redux/operations';
 import { selectUsersProfiles } from 'redux/selectors';
 import { BsArrowLeft } from 'react-icons/bs';
 // import { toast } from 'react-hot-toast';
@@ -15,8 +15,10 @@ import {
   DropdownTweets,
   DropdownTweetsMenu,
   DropdownTweetsContainer,
+  UserChoiseContainer,
 } from './TweetsPage.styled';
 import { UserCard } from 'components/UserCard/UserCard';
+import { AlternativeTogle } from 'components/AlternativeTogle/AlternativeTogle';
 
 export const TweetsPage = () => {
   const dispatch = useDispatch();
@@ -39,7 +41,6 @@ export const TweetsPage = () => {
 
   useEffect(() => {
     dispatch(fetchUserProfiles());
-    dispatch(checkPageUrl());
   }, [dispatch]);
 
   useEffect(() => {
@@ -122,6 +123,10 @@ export const TweetsPage = () => {
         Back
       </BackButton>
 
+      <UserChoiseContainer>
+        <AlternativeTogle />
+      </UserChoiseContainer>
+
       <DropdownTweetsContainer>
         <DropdownTweets
           id="dropdown-button-dark-example2"
@@ -155,6 +160,7 @@ export const TweetsPage = () => {
               tweets={userProfile.tweets}
               followers={userProfile.followers}
               following={userProfile.following}
+              gender={userProfile.gender}
               handleFollow={handleFollow}
             />
           </li>

@@ -1,16 +1,18 @@
 {
   "files": {
     "main.css": "/follow-cards-app/static/css/main.50f8a93b.css",
-    "main.js": "/follow-cards-app/static/js/main.9db55b10.js",
+    "main.js": "/follow-cards-app/static/js/main.108d668b.js",
     "static/media/Montserrat-VariableFont_wght.ttf": "/follow-cards-app/static/media/Montserrat-VariableFont_wght.3068cdb43142f5625baf.ttf",
     "static/media/friends.png": "/follow-cards-app/static/media/friends.7e205413cd773fa6e77f.png",
+    "static/media/man.jpg": "/follow-cards-app/static/media/man.02ce883b5cb49219d83b.jpg",
     "static/media/titlePicture.png": "/follow-cards-app/static/media/titlePicture.032662a2a907475127d7.png",
+    "static/media/woman.jpg": "/follow-cards-app/static/media/woman.f463551415bde074cecb.jpg",
     "index.html": "/follow-cards-app/index.html",
     "main.50f8a93b.css.map": "/follow-cards-app/static/css/main.50f8a93b.css.map",
-    "main.9db55b10.js.map": "/follow-cards-app/static/js/main.9db55b10.js.map"
+    "main.108d668b.js.map": "/follow-cards-app/static/js/main.108d668b.js.map"
   },
   "entrypoints": [
     "static/css/main.50f8a93b.css",
-    "static/js/main.9db55b10.js"
+    "static/js/main.108d668b.js"
   ]
 }

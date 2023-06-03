@@ -16,3 +16,14 @@ export const fetchUserProfiles = createAsyncThunk(
     }
   }
 );
+
+export const checkPageUrl = createAsyncThunk(
+  'contacts/checkPageUrl',
+  async (_, thunkAPI) => {
+    try {
+      return window.location.href.includes('tweets');
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

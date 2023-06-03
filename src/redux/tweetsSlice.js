@@ -1,18 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUserProfiles } from './operations';
-
-const handlePending = state => {
-  state.isLoading = true;
-};
-
-const handleRejected = state => {
-  state.isLoading = false;
-};
+import { fetchUserProfiles, checkPageUrl } from './operations';
 
 const initialState = {
   usersProfiles: [],
-  isLoading: false,
-  alternative: false,
+  alternativeUrl: false,
+  alternativeChose: false,
 };
 
 const usersProfilesSlice = createSlice({
@@ -21,16 +13,15 @@ const usersProfilesSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder
-      .addCase(fetchUserProfiles.pending, state => {
-        handlePending(state);
-      })
       .addCase(fetchUserProfiles.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
         state.usersProfiles = payload;
       })
-      .addCase(fetchUserProfiles.rejected, (state, { payload }) => {
-        handleRejected(state);
-      });
+      .addCase(fetchUserProfiles.rejected, (state, { payload }) => {})
+      .addCase(checkPageUrl.fulfilled, (state, { payload }) => {
+        console.log(payload);
+        state.alternative = payload;
+      })
+      .addCase(checkPageUrl.rejected, (state, { payload }) => {});
   },
 });
 

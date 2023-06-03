@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/follow-cards-app/static/css/main.50f8a93b.css",
-    "main.js": "/follow-cards-app/static/js/main.cb36e893.js",
+    "main.js": "/follow-cards-app/static/js/main.abe63985.js",
     "static/media/Montserrat-VariableFont_wght.ttf": "/follow-cards-app/static/media/Montserrat-VariableFont_wght.3068cdb43142f5625baf.ttf",
     "static/media/friends.png": "/follow-cards-app/static/media/friends.7e205413cd773fa6e77f.png",
     "static/media/man.jpg": "/follow-cards-app/static/media/man.02ce883b5cb49219d83b.jpg",
@@ -9,10 +9,10 @@
     "static/media/woman.jpg": "/follow-cards-app/static/media/woman.f463551415bde074cecb.jpg",
     "index.html": "/follow-cards-app/index.html",
     "main.50f8a93b.css.map": "/follow-cards-app/static/css/main.50f8a93b.css.map",
-    "main.cb36e893.js.map": "/follow-cards-app/static/js/main.cb36e893.js.map"
+    "main.abe63985.js.map": "/follow-cards-app/static/js/main.abe63985.js.map"
   },
   "entrypoints": [
     "static/css/main.50f8a93b.css",
-    "static/js/main.cb36e893.js"
+    "static/js/main.abe63985.js"
   ]
 }

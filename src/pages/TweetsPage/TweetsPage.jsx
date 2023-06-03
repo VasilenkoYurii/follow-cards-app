@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserProfiles } from 'redux/operations';
 import { selectUsersProfiles } from 'redux/selectors';
 import { BsArrowLeft } from 'react-icons/bs';
-// import { toast } from 'react-hot-toast';
 
 import Dropdown from 'react-bootstrap/Dropdown';
 

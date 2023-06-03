@@ -121,9 +121,6 @@ export const FollowButton = styled.p`
   color: #373737;
   background-color: ${props => props.bgColor};
   cursor: pointer;
-  /* 
-  после подписки 
-#5CD3A8 */
 
   width: 196px;
   padding-top: 14px;
@@ -136,6 +133,8 @@ export const FollowButton = styled.p`
 
   position: absolute;
   bottom: 36px;
+
+  box-shadow: 0px 3.44px 3.44px rgba(0, 0, 0, 0.25);
 
   transition: all 500ms;
 
@@ -245,6 +244,8 @@ export const AlterFollowButton = styled.p`
 
   position: absolute;
   bottom: 36px;
+
+  box-shadow: 0px 3.44px 3.44px rgba(0, 0, 0, 0.25);
 
   transition: all 500ms;
 
